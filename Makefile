@@ -1,4 +1,5 @@
-SRCS = srcs/parcing/ft_format_input.c
+SRCS = srcs/parcing/ft_format_input.c\
+		srcs/parcing/ft_clean.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -20,7 +21,7 @@ all : $(NAME)
 $(INCLUDE) :
 	make -C ./library
 
-$(NAME) : $(INCLUDE) $(OBJS)
+$(NAME) : $(INCLUDE) $(OBJS) $(PROGRAM)
 	$(CC) $(CFLAGS) $(PROGRAM) $(INCLUDE) $(OBJS)  -o $(NAME)
 
 clean :

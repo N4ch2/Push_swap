@@ -1,3 +1,4 @@
 *.o
 main.c
 .DS_Store
+push_swap
