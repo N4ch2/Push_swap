@@ -6,11 +6,11 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:15:12 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/22 21:20:05 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:31:48 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parcing.h"
+#include "ft_parcing.h"
 
 /*This function tranform a string of numbers separated by "s" to a list*/
 char	**ft_chain_to_list(char *input)
@@ -18,7 +18,7 @@ char	**ft_chain_to_list(char *input)
 	char	**out;
 
 
-	out = ft_split(input, 32);
+	out = ft_split(input, ' ');
 	if (out[0] == NULL)
 	{
 		ft_clean(out, 0);

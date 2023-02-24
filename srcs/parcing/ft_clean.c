@@ -6,11 +6,11 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:06:26 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/22 20:22:35 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:31:39 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parcing.h"
+#include "ft_parcing.h"
 
 char	**ft_clean(char **list, size_t i)
 {

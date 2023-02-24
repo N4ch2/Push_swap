@@ -1,5 +1,6 @@
 SRCS = srcs/parcing/ft_format_input.c\
 		srcs/parcing/ft_clean.c\
+		srcs/parcing/ft_check_list.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -7,7 +8,7 @@ PROGRAM = push_swap.c
 
 NAME = push_swap
 
-CC = gcc 
+CC = gcc -g
 
 CFLAGS = -Wall -Werror -Wextra
 
