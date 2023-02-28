@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   library.h                                          :+:      :+:    :+:   */
+/*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 11:35:47 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/28 13:01:09 by joramire         ###   ########.fr       */
+/*   Created: 2023/02/28 16:43:32 by joramire          #+#    #+#             */
+/*   Updated: 2023/02/28 17:31:22 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_H
-# define LIBRARY_H
+#include "ft_stacks.h"
 
-# include	"utils/libutils.h"
-# include	"libft/libft.h"
-
-/*Printf*/
-int		ft_printf(const char *format, ...);
-
-#endif
+void	ft_print_stack(t_stack *stack)
+{
+	while (stack != NULL)
+	{
+		ft_printf("pos: %i val: %i |\n", stack -> pos, stack -> val);
+		stack = stack -> next;
+	}
+	ft_printf("-------------------------------------------------------------\n");
+}

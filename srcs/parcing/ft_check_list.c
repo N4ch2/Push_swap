@@ -6,12 +6,11 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:51:41 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 18:31:26 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:43:30 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parcing.h"
-
 
 static int	ft_compare(char *number, int sign)
 {
@@ -95,20 +94,25 @@ int	ft_check_list(char **list)
 	int				j;
 	static int		(*checks[2])(char *number);
 
-	i = 0;
-	j = 0;
-	checks[0] = ft_check_only_numbers;
-	checks[1] = ft_check_limits;
-	while (list[i] != NULL)
+	if (list != NULL)
 	{
-		while (j < 2)
-		{
-			if (checks[j](list[i]) == 1)
-				return (1);
-			j++;
-		}
+		i = 0;
 		j = 0;
-		i++;
+		checks[0] = ft_check_only_numbers;
+		checks[1] = ft_check_limits;
+		while (list[i] != NULL)
+		{
+			while (j < 2)
+			{
+				if (checks[j](list[i]) == 1)
+					return (1);
+				j++;
+			}
+			j = 0;
+			i++;
+		}
+		return (0);
 	}
-	return (0);
+	else
+		return (1);
 }

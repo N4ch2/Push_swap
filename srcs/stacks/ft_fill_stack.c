@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:30:45 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 19:23:09 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:32:07 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,31 @@ static void	ft_add_node_back(t_stack **stack, t_stack *new)
 		last = ft_last_node(*stack);
 		if (new != NULL)
 			last -> next = new;
-		//si no??
 	}
 }
 
 t_stack	*ft_fill_stack(char **list)
 {
-	
+	int		i;
+	t_stack	*head;
+	t_stack	*aux;
+
+	if (ft_check_list(list) == 0)
+	{
+		i = 0;
+		while (list[i] != NULL)
+		{
+			if (i == 0)
+				head = ft_new_node(i + 1, ft_atoi(list[i]));
+			else
+			{
+				aux = ft_new_node(i + 1, ft_atoi(list[i]));
+				ft_add_node_back(&head, aux);
+			}
+			i++;
+		}
+		return (head);
+	}
+	else
+		return (NULL);
 }

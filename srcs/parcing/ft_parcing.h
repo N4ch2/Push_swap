@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:45:52 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 18:27:29 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:34:34 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ char		**ft_format_input(int argc, char **argv);
 char		**ft_clean(char **list, size_t i);
 /*This function check if the list of inputs is correct*/
 int			ft_check_list(char **list);
-
 
 #endif

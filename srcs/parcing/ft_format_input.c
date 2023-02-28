@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:15:12 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 18:31:48 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:35:06 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 char	**ft_chain_to_list(char *input)
 {
 	char	**out;
-
 
 	out = ft_split(input, ' ');
 	if (out[0] == NULL)
@@ -61,7 +60,6 @@ char	**ft_format_input(int argc, char **argv)
 	{
 		ft_printf("Error: must to introduce a list of numbers\n");
 		out = NULL;
-		exit(1);
 	}
 	else if (argc == 2)
 		out = ft_chain_to_list(argv[1]);

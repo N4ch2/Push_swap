@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 18:28:34 by joramire         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:12:55 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 int	main(int argc, char **argv)
 {
 	char	**list;
-	int		i;
+	t_stack	*stack_a;
 
 	list = ft_format_input(argc, argv);
-	i = 0;
-	while (list && list[i] != NULL)
-	{
-		ft_printf("%s\n", list[i]);
-		i++;
-	}
-	ft_printf("check: %i\n", ft_check_list(list));
+	stack_a = ft_fill_stack(list);
+	if (stack_a == NULL)
+		return (1);
+	else
+		ft_print_stack(stack_a);
+	return (0);
 }
