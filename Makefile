@@ -2,7 +2,7 @@ SRCS = srcs/parcing/ft_format_input.c\
 		srcs/parcing/ft_clean.c\
 		srcs/parcing/ft_check_list.c\
 		srcs/stacks/ft_fill_stack.c\
-		srcs/stacks/ft_print_stack.c\
+		srcs/stacks/ft_utils_stack.c\
 
 OBJS = $(SRCS:.c=.o)
 

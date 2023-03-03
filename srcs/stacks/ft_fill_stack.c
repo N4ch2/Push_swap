@@ -6,17 +6,17 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:30:45 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/28 16:32:07 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:09:01 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stacks.h"
 
-static t_stack	*ft_new_node(int position, int value)
+static t_stack_node	*ft_new_node(int position, int value)
 {
-	t_stack	*node;
+	t_stack_node	*node;
 
-	node = malloc(sizeof(t_stack));
+	node = malloc(sizeof(t_stack_node));
 	if (node == NULL)
 		return (NULL);
 	node -> pos = position;
@@ -25,7 +25,7 @@ static t_stack	*ft_new_node(int position, int value)
 	return (node);
 }
 
-static t_stack	*ft_last_node(t_stack *node)
+static t_stack_node	*ft_last_node(t_stack_node *node)
 {
 	if (node == NULL)
 		return (NULL);
@@ -34,9 +34,9 @@ static t_stack	*ft_last_node(t_stack *node)
 	return (ft_last_node(node -> next));
 }
 
-static void	ft_add_node_back(t_stack **stack, t_stack *new)
+static void	ft_add_node_back(t_stack_node **stack, t_stack_node *new)
 {
-	t_stack	*last;
+	t_stack_node	*last;
 
 	if (*stack == NULL)
 		*stack = new;
@@ -48,27 +48,42 @@ static void	ft_add_node_back(t_stack **stack, t_stack *new)
 	}
 }
 
+t_stack_node	*ft_fill_stack_node(char **list, int *length)
+{
+	int				i;
+	t_stack_node	*head;
+	t_stack_node	*aux;
+
+	i = 0;
+	while (list[i] != NULL)
+	{
+		if (i == 0)
+			head = ft_new_node(i + 1, ft_atoi(list[i]));
+		else
+		{
+			aux = ft_new_node(i + 1, ft_atoi(list[i]));
+			ft_add_node_back(&head, aux);
+		}
+		i++;
+	}
+	*length = i;
+	return (head);
+}
+
 t_stack	*ft_fill_stack(char **list)
 {
-	int		i;
-	t_stack	*head;
-	t_stack	*aux;
+	t_stack	*stack;
+	int		length;
 
 	if (ft_check_list(list) == 0)
 	{
-		i = 0;
-		while (list[i] != NULL)
-		{
-			if (i == 0)
-				head = ft_new_node(i + 1, ft_atoi(list[i]));
-			else
-			{
-				aux = ft_new_node(i + 1, ft_atoi(list[i]));
-				ft_add_node_back(&head, aux);
-			}
-			i++;
-		}
-		return (head);
+		stack = malloc(sizeof(t_stack));
+		if (stack == NULL)
+			return (NULL);
+		stack -> name = "Stack A";
+		stack -> head = ft_fill_stack_node(list, &length);
+		stack -> length = length;
+		return (stack);
 	}
 	else
 		return (NULL);
