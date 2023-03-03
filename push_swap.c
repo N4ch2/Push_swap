@@ -6,13 +6,14 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/03 14:04:44 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/03 17:47:56 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "library/library.h"
 #include "srcs/parcing/ft_parcing.h"
 #include "srcs/stacks/ft_stacks.h"
+#include "srcs/movements/ft_movements.h"
 
 int	main(int argc, char **argv)
 {
@@ -25,6 +26,9 @@ int	main(int argc, char **argv)
 	stack_b = ft_empty_stack();
 	if (stack_a == NULL || stack_b == NULL)
 		return (1);
+	ft_print_stack(stack_a);
+	ft_print_stack(stack_b);
+	ft_swap(stack_a);
 	ft_print_stack(stack_a);
 	ft_print_stack(stack_b);
 	return (0);
