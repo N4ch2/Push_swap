@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nacho <nacho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/03 17:47:56 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:46:56 by nacho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	main(int argc, char **argv)
 		return (1);
 	ft_print_stack(stack_a);
 	ft_print_stack(stack_b);
-	ft_swap(stack_a);
+	ft_push(stack_a, stack_b);
+	ft_push(stack_a, stack_b);
+	ft_push(stack_a, stack_b);
+	ft_swap(stack_b);
 	ft_print_stack(stack_a);
 	ft_print_stack(stack_b);
 	return (0);

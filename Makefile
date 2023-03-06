@@ -4,6 +4,7 @@ SRCS = srcs/parcing/ft_format_input.c\
 		srcs/stacks/ft_fill_stack.c\
 		srcs/stacks/ft_utils_stack.c\
 		srcs/movements/ft_swap.c\
+		srcs/movements/ft_push.c\
 
 OBJS = $(SRCS:.c=.o)
 

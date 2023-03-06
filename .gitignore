@@ -4,3 +4,4 @@ main.c
 push_swap
 push_swap.dSYM
 *.a
+.vscode/

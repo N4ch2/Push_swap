@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nacho <nacho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:32 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/03 14:04:32 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:34:19 by nacho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stacks.h"
+
+void	ft_change_pos_stack(t_stack *stack, int i)
+{
+	t_stack_node	*iter;
+
+	iter = stack -> head;
+	while (iter != NULL)
+	{
+		iter -> pos += i;
+		iter = iter -> next;
+	}
+}
 
 t_stack	*ft_empty_stack(void)
 {
