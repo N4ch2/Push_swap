@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_movements.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacho <nacho@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:06:51 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/06 21:40:43 by nacho            ###   ########.fr       */
+/*   Updated: 2023/03/07 19:24:32 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,17 @@
 
 /*Swap the two elements in the top of the stack*/
 void	ft_swap(t_stack *stack);
+/*Do a double swap*/
+void	ft_double_swap(t_stack *stack1, t_stack *stack2);
 /*Push the top of the stack a to the stack b*/
-void    ft_push(t_stack *origin, t_stack *destiny);
+void	ft_push(t_stack *origin, t_stack *destiny);
+/*The first element becomes the last one*/
+void	ft_rotate(t_stack *stack);
+/*Do rotate on stack 1 and 2*/
+void	ft_double_rotate(t_stack *stack1, t_stack *stack2);
+/*The last element becomes the first one*/
+void	ft_reverse_rotate(t_stack *stack);
+/*Do reverse rotate on stack 1 and 2*/
+void	ft_double_reverse_rotate(t_stack *stack1, t_stack *stack2);
 
 #endif

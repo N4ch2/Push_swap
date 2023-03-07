@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:07:55 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/03 17:48:21 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:42:07 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,10 @@ void	ft_swap(t_stack *stack)
 		stack -> head -> pos--;
 		stack -> head -> next -> pos++;
 	}
+}
+
+void	ft_double_swap(t_stack *stack1, t_stack *stack2)
+{
+	ft_swap(stack1);
+	ft_swap(stack2);
 }

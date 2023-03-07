@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stacks.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacho <nacho@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:07:53 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/06 21:34:38 by nacho            ###   ########.fr       */
+/*   Updated: 2023/03/07 18:41:18 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ t_stack			*ft_fill_stack(char **list);
 t_stack			*ft_empty_stack(void);
 /*Print a stack*/
 void			ft_print_stack(t_stack *stack);
+/*Return the direcction of the last node in the stack*/
+t_stack_node	*ft_last_node(t_stack_node *node);
+/*Add the new node back*/
+void	ft_add_node_back(t_stack_node **stack, t_stack_node *new);
 
 #endif

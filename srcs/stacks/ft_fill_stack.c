@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:30:45 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/03 13:09:01 by joramire         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:40:35 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_stack_node	*ft_new_node(int position, int value)
 	return (node);
 }
 
-static t_stack_node	*ft_last_node(t_stack_node *node)
+t_stack_node	*ft_last_node(t_stack_node *node)
 {
 	if (node == NULL)
 		return (NULL);
@@ -34,7 +34,7 @@ static t_stack_node	*ft_last_node(t_stack_node *node)
 	return (ft_last_node(node -> next));
 }
 
-static void	ft_add_node_back(t_stack_node **stack, t_stack_node *new)
+void	ft_add_node_back(t_stack_node **stack, t_stack_node *new)
 {
 	t_stack_node	*last;
 
