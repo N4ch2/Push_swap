@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_algorithm.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 20:38:37 by nacho             #+#    #+#             */
-/*   Updated: 2023/07/05 20:06:51 by joramire         ###   ########.fr       */
+/*   Created: 2023/07/05 20:34:21 by joramire          #+#    #+#             */
+/*   Updated: 2023/07/05 21:00:56 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_movements.h"
+#ifndef FT_ALGORITHM_H
+# define FT_ALGORITHM_H
 
-void	ft_push(t_stack *origin, t_stack *destiny)
-{
-	t_stack_node	*head;
+# include   <stdlib.h>
+# include   <limits.h>
+# include	"../movements/ft_movements.h"
+# include	"../stacks/ft_stacks.h"
 
-	head = origin -> head;
-	if (head != NULL)
-	{
-		destiny -> length += 1;
-		ft_change_pos_stack(destiny, 1);
-		origin -> head = head -> next;
-		head -> next = destiny -> head;
-		destiny -> head = head;
-		ft_change_pos_stack(origin, -1);
-		origin -> length -= 1;
-	}
-}
+/*Check if stack is ordered (0:TRUE 1:FALSE)*/
+int		ft_isrange(t_stack *stack);
+
+#endif
