@@ -6,11 +6,35 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:30:21 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/05 21:12:04 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:45:07 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_algorithm.h"
+
+int	ft_distinct(t_stack *stack)
+{
+	t_stack_node	*current;
+	t_stack_node	*pass;
+	int				current_val;
+	int				pass_val;
+
+	current = stack -> head;
+	while (current -> next != NULL)
+	{
+		current_val = current -> val;
+		pass = current -> next;
+		while (pass != NULL)
+		{
+			pass_val = pass -> val;
+			if (pass_val == current_val)
+				return (1);
+			pass = pass -> next;
+		}
+		current = current -> next;
+	}
+	return (0);
+}
 
 int	ft_isrange(t_stack *stack)
 {

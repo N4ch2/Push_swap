@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacho <nacho@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:32 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/06 21:34:19 by nacho            ###   ########.fr       */
+/*   Updated: 2023/07/06 16:57:22 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,18 @@ void	ft_print_stack(t_stack *stack)
 {
 	t_stack_node	*head;
 
-	ft_printf("name: %s\n", stack -> name);
+	ft_printf("----------------------------------------------------------|\n");
+	ft_printf("|%s| ", stack -> name);
 	ft_printf("length: %i\n", stack -> length);
 	head = stack -> head;
+	ft_printf("----------------------------------------------------------|\n");
 	while (head != NULL)
 	{
-		ft_printf("| pos: %i val: %i |\n", head -> pos, head -> val);
+		ft_printf("|---%i---| ", head->val);
+		ft_printf("pos: %i ", head -> pos);
+		ft_printf("target: %i\n", head -> target);
+
 		head = head -> next;
 	}
-	ft_printf("-------------------------------------------------------------\n");
+	ft_printf("----------------------------------------------------------|\n");
 }

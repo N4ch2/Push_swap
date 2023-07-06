@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:07:53 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/07 18:41:18 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:42:00 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack_node
 {
 	int					pos;
 	int					val;
+	int					target;
 	struct s_stack_node	*next;
 }					t_stack_node;
 

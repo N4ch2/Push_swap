@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:30:45 by joramire          #+#    #+#             */
-/*   Updated: 2023/03/07 18:40:35 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:43:38 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static t_stack_node	*ft_new_node(int position, int value)
 		return (NULL);
 	node -> pos = position;
 	node -> val = value;
+	node -> target = 0;
 	node -> next = NULL;
 	return (node);
 }
