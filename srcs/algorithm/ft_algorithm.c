@@ -5,47 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 12:33:32 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/07 14:14:30 by joramire         ###   ########.fr       */
+/*   Created: 2023/07/07 19:16:56 by joramire          #+#    #+#             */
+/*   Updated: 2023/07/07 20:32:49 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_algorithm.h"
 
-void	ft_shuffle(t_stack_node *first, t_stack_node *second, t_stack *stack)
+int	ft_check_algorithm(t_stack *stack_a)
 {
-	if (first -> target == 2 && second -> target == 1)
-		ft_swap(stack);
-	else if (first -> target == 2 && second -> target == 3)
-		ft_reverse_rotate(stack);
-	else if (first -> target == 3 && second -> target == 1)
-		ft_rotate(stack);
-	else if (first -> target == 2 && second -> target == 1)
-		ft_swap(stack);
-	else if (first -> target == 3 && second -> target == 2)
-	{
-		ft_swap(stack);
-		ft_reverse_rotate(stack);
-	}
-	else if (first -> target == 3 && second -> target == 2)
-	{
-		ft_swap(stack);
-		ft_rotate(stack);
-	}
+	if (ft_distinct(stack_a) == 0)
+		return (1);
+	if (ft_issort(stack_a) == 1)
+		return (2);
+	return (0);
 }
 
-void	ft_three_sort(t_stack *stack)
+void	ft_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack_node	*first;
-	t_stack_node	*second;
-	t_stack_node	*third;
-
-	ft_target(stack);
-	first = stack -> head;
-	second = first -> next;
-	third = second -> next;
-	if (ft_issort(stack) == 1)
-		return ;
+	ft_target(stack_a);
+	if (stack_a -> length == 3)
+		ft_three_sort(stack_a);
 	else
-		ft_shuffle(first, second, stack);
+		ft_only_three_ordered(stack_a, stack_b);
+
 }

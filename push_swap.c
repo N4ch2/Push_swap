@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/07 14:15:18 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:59:37 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,19 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL || stack_b == NULL)
 		return (1);
 	ft_print_stack(stack_a);
-	ft_three_sort(stack_a);
+	if (ft_check_algorithm(stack_a) == 1)
+	{
+		ft_printf("Error: Almost two numbers equal\n");
+		return (1);
+	}
+	else if (ft_check_algorithm(stack_a) == 2)
+	{
+		ft_printf("Finish: Stack is already ordered\n");
+		return (0);
+	}
+	else
+		ft_algorithm(stack_a, stack_b);
 	ft_print_stack(stack_a);
-	ft_printf("distinct: %i \n", ft_distinct(stack_a));
-	ft_printf("isrange: %i \n", ft_issort(stack_a));
+	ft_print_stack(stack_b);
 	return (0);
 }

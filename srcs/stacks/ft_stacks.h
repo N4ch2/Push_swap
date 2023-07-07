@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:07:53 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/06 16:42:00 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:35:51 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void			ft_print_stack(t_stack *stack);
 /*Return the direcction of the last node in the stack*/
 t_stack_node	*ft_last_node(t_stack_node *node);
 /*Add the new node back*/
-void	ft_add_node_back(t_stack_node **stack, t_stack_node *new);
+void			ft_add_node_back(t_stack_node **stack, t_stack_node *new);
 
 #endif
