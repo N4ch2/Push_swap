@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/06 17:12:23 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:15:18 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL || stack_b == NULL)
 		return (1);
 	ft_print_stack(stack_a);
+	ft_three_sort(stack_a);
+	ft_print_stack(stack_a);
 	ft_printf("distinct: %i \n", ft_distinct(stack_a));
-	ft_printf("isrange: %i \n", ft_isrange(stack_a));
+	ft_printf("isrange: %i \n", ft_issort(stack_a));
 	return (0);
 }
