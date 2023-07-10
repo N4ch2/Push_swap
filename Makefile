@@ -9,6 +9,8 @@ SRCS = srcs/parcing/ft_format_input.c\
 		srcs/algorithm/ft_utils_algorithm.c\
 		srcs/algorithm/ft_three_algorithm.c\
 		srcs/algorithm/ft_algorithm.c\
+		srcs/algorithm/ft_utils_insert.c\
+		srcs/algorithm/ft_insert.c\
 
 OBJS = $(SRCS:.c=.o)
 

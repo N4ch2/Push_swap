@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:34:21 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/07 20:32:00 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:02:03 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	ft_only_three_ordered(t_stack *stack_a, t_stack *stack_b);
 int		ft_check_algorithm(t_stack *stack_a);
 /*Do the algorithm to sort the stack_a*/
 void	ft_algorithm(t_stack *stack_a, t_stack *stack_b);
+/*Calculate the absolute valor of n*/
+int		ft_abs(int n);
 
 #endif

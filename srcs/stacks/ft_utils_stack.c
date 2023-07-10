@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:32 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/07 18:38:30 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:26:14 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_print_stack(t_stack *stack)
 	{
 		ft_printf("|---|%i|---| ", head->val);
 		ft_printf("pos: %i ", head -> pos);
-		ft_printf("target: %i\n", head -> target);
+		ft_printf("target: %i ", head -> target);
+		ft_printf("ctu: %i\n", head -> costup);
 		head = head -> next;
 	}
 	ft_printf("----------------------------------------------------------|\n");
