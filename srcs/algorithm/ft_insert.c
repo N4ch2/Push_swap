@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 18:01:48 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/10 19:22:07 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:24:35 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static t_stack_node	*ft_following(t_stack_node *current, stack_t *stack_a)
 
 /*this funtion executes the movements*/
 static void ft_insert_mov()
-{} 
+{ } 
 
 /*This function do the action of insert*/
 static void	ft_insert_action(t_stack_node *insert, t_stack_node *follow
