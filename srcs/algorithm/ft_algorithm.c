@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:16:56 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/10 18:02:35 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:47:47 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ void	ft_algorithm(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a -> length == 3)
 		ft_three_sort(stack_a);
 	else
+	{
 		ft_only_three_ordered(stack_a, stack_b);
+		ft_insertion(stack_a, stack_b);
+		//ft_roll_back(stack_a);
+	}
 }

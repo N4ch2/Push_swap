@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 18:01:48 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/10 19:24:35 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:50:04 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_costup(t_stack *stack)
 }
 
 /*This function calculate the following node of current in stack_a*/
-static t_stack_node	*ft_following(t_stack_node *current, stack_t *stack_a)
+static t_stack_node	*ft_following(t_stack_node *current, t_stack *stack_a)
 {
 	t_stack_node	*pass;
 	t_stack_node	*following;
@@ -51,29 +51,40 @@ static t_stack_node	*ft_following(t_stack_node *current, stack_t *stack_a)
 }
 
 /*this funtion executes the movements*/
-static void ft_insert_mov()
-{ } 
+static void	ft_insert_mov(int gen_loop, int loop_a, int loop_b
+							, t_stack *stack_a, t_stack *stack_b)
+{
+	if (gen_loop != 0)
+		ft_common_loops(gen_loop, stack_a, stack_b);
+	ft_rotate_loops(loop_a, stack_a);
+	ft_rotate_loops(loop_b, stack_b);
+	ft_push(stack_b, stack_a);
+}
 
 /*This function do the action of insert*/
 static void	ft_insert_action(t_stack_node *insert, t_stack_node *follow
-								t_stack *stack_a, t_stack *stack_b)
+								, t_stack *stack_a, t_stack *stack_b)
 {
 	int	ins_cost;
 	int	foll_cost;
+	int	ins_abs;
+	int	foll_abs;
 	int	min;
 
-	ins_loop = insert->costup;
+	ins_cost = insert->costup;
 	foll_cost = follow->costup;
+	ins_abs = ft_abs(ins_cost);
+	foll_abs = ft_abs(foll_cost);
+	min = ft_min(ins_abs, foll_abs);
 	if (insert->costup * insert->costup > 0)
 	{
-		min = ft_min(ins_cost, foll_cost);
-		while (min-- > -1)
-			ft_double_rotate(stack_a, stack_b);
+		if (insert->costup > 0)
+			ft_insert_mov(min, (foll_abs - min), (ins_abs - min),  stack_a, stack_b);
+		if (insert->costup < 0)
+			ft_insert_mov(-min, (foll_cost + min), (ins_abs + min),  stack_a, stack_b);
 	}
 	else
-	{
-		
-	}
+		ft_insert_mov(0, foll_cost, ins_cost, stack_a, stack_b);	
 }
 
 void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
@@ -86,7 +97,7 @@ void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
 
 	ft_costup(stack_a);
 	ft_costup(stack_b);
-	while (stack_b -> length == 0)
+	while (stack_b -> length != 0)
 	{
 		insert = stack_b -> head;
 		pass = insert -> next;
@@ -100,6 +111,6 @@ void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
 				insert = pass;
 			pass = pass -> next;
 		}
-		ft_insert_action(insert, ft_following(insert), stack_a, stack_b);
+		ft_insert_action(insert, ft_following(insert, stack_a), stack_a, stack_b);
 	}
 }
