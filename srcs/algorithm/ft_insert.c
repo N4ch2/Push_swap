@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 18:01:48 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/11 18:50:04 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:21:31 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,29 @@ static t_stack_node	*ft_following(t_stack_node *current, t_stack *stack_a)
 	t_stack_node	*following;
 
 	pass = stack_a -> head;
-	following = pass;
-	while (pass != NULL)
+	while (pass->target < current->target && pass != NULL)
+		pass = pass->next;
+	if (pass == NULL)
+		following = ft_stack_target_min(stack_a);
+	else
 	{
-		if (pass->target > current->target && pass->target < following->target)
-			following = pass;
-		pass = pass -> next;
+		following = pass;
+		pass = following->next;
+		while (pass != NULL)
+		{
+			if (pass->target > current->target
+					&& pass->target < following->target)
+				following = pass;
+			pass = pass -> next;
+		}
 	}
 	return (following);
-}
+}	
 
 /*this funtion executes the movements*/
-static void	ft_insert_mov(int gen_loop, int loop_a, int loop_b
+static void	ft_insert_mov(int loop_a, int loop_b
 							, t_stack *stack_a, t_stack *stack_b)
 {
-	if (gen_loop != 0)
-		ft_common_loops(gen_loop, stack_a, stack_b);
 	ft_rotate_loops(loop_a, stack_a);
 	ft_rotate_loops(loop_b, stack_b);
 	ft_push(stack_b, stack_a);
@@ -76,15 +83,21 @@ static void	ft_insert_action(t_stack_node *insert, t_stack_node *follow
 	ins_abs = ft_abs(ins_cost);
 	foll_abs = ft_abs(foll_cost);
 	min = ft_min(ins_abs, foll_abs);
-	if (insert->costup * insert->costup > 0)
+	if (insert->costup * follow->costup > 0)
 	{
 		if (insert->costup > 0)
-			ft_insert_mov(min, (foll_abs - min), (ins_abs - min),  stack_a, stack_b);
+		{
+			ft_common_loops(min, stack_a, stack_b);
+			ft_insert_mov((foll_abs - min), (ins_abs - min),  stack_a, stack_b);
+		}
 		if (insert->costup < 0)
-			ft_insert_mov(-min, (foll_cost + min), (ins_abs + min),  stack_a, stack_b);
+		{
+			ft_common_loops(-min, stack_a, stack_b);
+			ft_insert_mov((foll_cost + min), (ins_abs + min),  stack_a, stack_b);
+		}
 	}
 	else
-		ft_insert_mov(0, foll_cost, ins_cost, stack_a, stack_b);	
+		ft_insert_mov(foll_cost, ins_cost, stack_a, stack_b);
 }
 
 void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
@@ -95,10 +108,10 @@ void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
 	int				global_cost;
 	int				current_cost;
 
-	ft_costup(stack_a);
-	ft_costup(stack_b);
 	while (stack_b -> length != 0)
 	{
+		ft_costup(stack_a);
+		ft_costup(stack_b);
 		insert = stack_b -> head;
 		pass = insert -> next;
 		while (pass != NULL)
@@ -111,6 +124,15 @@ void	ft_insertion(t_stack *stack_a, t_stack *stack_b)
 				insert = pass;
 			pass = pass -> next;
 		}
-		ft_insert_action(insert, ft_following(insert, stack_a), stack_a, stack_b);
+		/* ft_printf("CHECKPOINT B (Calculate insertion)\n");
+		ft_print_stack(stack_a);
+		ft_print_stack(stack_b);
+		ft_printf("Insert Target: %i\n", insert -> target);
+		ft_printf("Follow Target: %i\n", ft_following(insert, stack_a) -> target); */
+		follow = ft_following(insert, stack_a);
+		ft_insert_action(insert, follow, stack_a, stack_b);
+		/* ft_printf("CHECKPOINT C (After insert action)\n");
+		ft_print_stack(stack_a);
+		ft_print_stack(stack_b); */
 	}
 }

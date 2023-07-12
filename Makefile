@@ -11,7 +11,8 @@ SRCS = srcs/parcing/ft_format_input.c\
 		srcs/algorithm/ft_algorithm.c\
 		srcs/algorithm/ft_utils_insert.c\
 		srcs/algorithm/ft_insert.c\
-
+		srcs/algorithm/ft_general_utils.c\
+		
 OBJS = $(SRCS:.c=.o)
 
 PROGRAM = push_swap.c

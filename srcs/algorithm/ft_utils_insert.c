@@ -6,26 +6,26 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:00:07 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/11 18:24:26 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:47:40 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_algorithm.h"
 
-int	ft_abs(int n)
+t_stack_node	*ft_stack_target_min(t_stack *stack)
 {
-	if (n < 0)
-		return ((-1) * n);
-	else
-		return (n);
-}
+	t_stack_node	*min;
+	t_stack_node	*pass;
 
-int	ft_min(int n, int m)
-{
-	if (n < m)
-		return (n);
-	else
-		return (m);
+	min = stack -> head;
+	pass = min -> next;
+	while (pass != NULL)
+	{
+		if (pass->target < min->target)
+			min = pass;
+		pass = pass->next;
+	}
+	return (min);
 }
 
 void	ft_common_loops(int loops, t_stack *stack_a, t_stack *stack_b)
@@ -63,17 +63,8 @@ void	ft_roll_back(t_stack *stack_a)
 	head = stack_a -> head;
 	while (head != NULL && head->target != 1)
 		head = head -> next;
-	if (head -> pos < stack_a -> length)
+	if (head -> target < stack_a -> length)
 		ft_rotate_loops(head -> pos - 1, stack_a);
 	else
 		ft_rotate_loops(-(stack_a->length - head->pos), stack_a);
 }
-
-
-
-
-
-
-
-
-

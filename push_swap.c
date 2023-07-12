@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/11 18:49:17 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:03:38 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_algorithm(stack_a, stack_b);
-	ft_printf("FINISH\n");
+	/* ft_printf("FINISH\n");
 	ft_print_stack(stack_a);
-	ft_print_stack(stack_b);
+	ft_print_stack(stack_b); */
 	return (0);
 }
