@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:30:45 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/06 16:43:38 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:47:35 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,15 @@ t_stack	*ft_fill_stack(char **list)
 		if (stack == NULL)
 			return (NULL);
 		stack -> name = "Stack A";
+		stack -> letter = 'a';
 		stack -> head = ft_fill_stack_node(list, &length);
 		stack -> length = length;
+		ft_clean(list, length);
 		return (stack);
 	}
 	else
+	{
+		ft_clean_list(list);
 		return (NULL);
+	}
 }

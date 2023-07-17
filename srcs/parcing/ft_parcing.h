@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:45:52 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/28 16:34:34 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:39:00 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 
 /*This function takes (argc,agv) and make a list of inputs*/
 char		**ft_format_input(int argc, char **argv);
-/*This function clean correctly the list of numbers*/
+/*This function clean correctly the list of numbers since a point i*/
 char		**ft_clean(char **list, size_t i);
+/*This function clean correctly the whole list of numbers*/
+char		**ft_clean_list(char **list);
 /*This function check if the list of inputs is correct*/
 int			ft_check_list(char **list);
 

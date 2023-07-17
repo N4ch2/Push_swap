@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:16:56 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/12 20:42:48 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:19:34 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_algorithm(t_stack *stack_a, t_stack *stack_b)
 	else
 	{
 		ft_only_three_ordered(stack_a, stack_b);
+		ft_printf("BP\n");
+		ft_print_stack(stack_a);
 		ft_insertion(stack_a, stack_b);
 		ft_roll_back(stack_a);
 	}

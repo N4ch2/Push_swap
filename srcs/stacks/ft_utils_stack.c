@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:32 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/10 18:26:14 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:51:03 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,28 @@ t_stack	*ft_empty_stack(void)
 	if (stack == NULL)
 		return (NULL);
 	stack -> name = "Stack B";
+	stack -> letter = 'b';
 	stack -> head = NULL;
 	stack -> length = 0;
 	return (stack);
+}
+
+void	ft_clear_stack(t_stack *stack)
+{
+	t_stack_node	*current;
+	t_stack_node	*next;
+	t_stack_node	*head;
+
+	head = stack->head;
+	current = head;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	head = NULL;
+	free(stack);
 }
 
 void	ft_print_stack(t_stack *stack)

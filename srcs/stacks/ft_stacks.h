@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:07:53 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/10 18:25:40 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 20:30:11 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack_node
 typedef struct s_stack
 {
 	char					*name;
+	char					letter;
 	int						length;
 	struct s_stack_node		*head;
 }					t_stack;
@@ -38,6 +39,8 @@ typedef struct s_stack
 void			ft_change_pos_stack(t_stack *stack, int i);
 /*Transform the matrix list to a struct stack  to do the algorithm*/
 t_stack			*ft_fill_stack(char **list);
+/*This function free the stack*/
+void			ft_clear_stack(t_stack *stack);
 /*Create an empty stack*/
 t_stack			*ft_empty_stack(void);
 /*Print a stack*/

@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 20:06:26 by joramire          #+#    #+#             */
-/*   Updated: 2023/02/24 18:31:39 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:41:11 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,16 @@ char	**ft_clean(char **list, size_t i)
 		i--;
 	}
 	return (NULL);
+}
+
+char	**ft_clean_list(char **list)
+{
+	int		i;
+	char	**out;
+
+	i = 0;
+	while (list[i] != NULL)
+		i++;
+	out = ft_clean(list, i);
+	return (out);
 }

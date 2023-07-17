@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 20:38:37 by nacho             #+#    #+#             */
-/*   Updated: 2023/07/05 20:06:51 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:54:07 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_push(t_stack *origin, t_stack *destiny)
 		ft_change_pos_stack(origin, -1);
 		origin -> length -= 1;
 	}
+	ft_printf("p%c\n", destiny -> letter);
 }

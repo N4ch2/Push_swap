@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:07:55 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/07 14:15:31 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:51:56 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ void	ft_swap(t_stack *stack)
 		stack -> head -> pos--;
 		stack -> head -> next -> pos++;
 	}
-	ft_printf("Swap %s \n", stack -> name);
+	ft_printf("s%c\n", stack -> letter);
 }
 
 void	ft_double_swap(t_stack *stack1, t_stack *stack2)
 {
 	ft_swap(stack1);
 	ft_swap(stack2);
+	ft_printf("ss\n");
 }
