@@ -6,13 +6,13 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:07:55 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/17 19:51:56 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:19:01 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_movements.h"
 
-void	ft_swap(t_stack *stack)
+void	ft_swap(t_stack *stack, int print)
 {
 	t_stack_node	*head;
 	t_stack_node	*next;
@@ -27,12 +27,14 @@ void	ft_swap(t_stack *stack)
 		stack -> head -> pos--;
 		stack -> head -> next -> pos++;
 	}
-	ft_printf("s%c\n", stack -> letter);
+	if (print == 1)
+		ft_printf("s%c\n", stack -> letter);
 }
 
-void	ft_double_swap(t_stack *stack1, t_stack *stack2)
+void	ft_double_swap(t_stack *stack1, t_stack *stack2, int print)
 {
-	ft_swap(stack1);
-	ft_swap(stack2);
-	ft_printf("ss\n");
+	ft_swap(stack1, 0);
+	ft_swap(stack2, 0);
+	if (print == 1)
+		ft_printf("ss\n");
 }

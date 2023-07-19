@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:51:41 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/17 21:48:49 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 22:53:39 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	ft_check_limits(char *number)
 	if ((end - init) == 10)
 		out = ft_compare((number + init), sign);
 	if (out == 1)
-		ft_printf("Error: some number out of bounds\n");
+		ft_putstr_fd("Error\n", 2);
 	return (out);
 }
 
@@ -71,7 +71,7 @@ static int	ft_check_only_numbers(char *number)
 		i++;
 		if (ft_isdigit(number[i]) == 0)
 		{
-			ft_printf("Error: not valid expresion in the list\n");
+			ft_putstr_fd("Error\n", 2);
 			return (1);
 		}
 	}
@@ -81,7 +81,7 @@ static int	ft_check_only_numbers(char *number)
 			i++;
 		else
 		{
-			ft_printf("Error: not valid expresion in the list\n");
+			ft_putstr_fd("Error\n", 2);
 			return (1);
 		}
 	}

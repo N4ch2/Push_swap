@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 18:01:48 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/17 21:17:33 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 22:11:30 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_insert_mov(int loop_a, int loop_b
 {
 	ft_rotate_loops(loop_a, stack_a);
 	ft_rotate_loops(loop_b, stack_b);
-	ft_push(stack_b, stack_a);
+	ft_push(stack_b, stack_a, 1);
 }
 
 /*This function do the action of insert*/
@@ -74,8 +74,10 @@ static void	ft_insert_action(t_stack_node *insert, t_stack_node *f
 {
 	int	ins_abs;
 	int	foll_abs;
+	int	icostup;
 	int	min;
 
+	icostup = insert -> costup;
 	ins_abs = ft_abs(insert->costup);
 	foll_abs = ft_abs(f->costup);
 	min = ft_min(ins_abs, foll_abs);
@@ -89,7 +91,7 @@ static void	ft_insert_action(t_stack_node *insert, t_stack_node *f
 		if (insert->costup < 0)
 		{
 			ft_common_loops(-min, stack_a, stack_b);
-			ft_insert_mov((f->costup + min), (ins_abs + min), stack_a, stack_b);
+			ft_insert_mov((f->costup + min), (icostup + min), stack_a, stack_b);
 		}
 	}
 	else

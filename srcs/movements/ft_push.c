@@ -6,13 +6,13 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 20:38:37 by nacho             #+#    #+#             */
-/*   Updated: 2023/07/17 19:54:07 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:19:44 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_movements.h"
 
-void	ft_push(t_stack *origin, t_stack *destiny)
+void	ft_push(t_stack *origin, t_stack *destiny, int print)
 {
 	t_stack_node	*head;
 
@@ -27,5 +27,6 @@ void	ft_push(t_stack *origin, t_stack *destiny)
 		ft_change_pos_stack(origin, -1);
 		origin -> length -= 1;
 	}
-	ft_printf("p%c\n", destiny -> letter);
+	if (print == 1)
+		ft_printf("p%c\n", destiny -> letter);
 }

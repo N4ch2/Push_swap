@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:00:07 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/12 19:47:40 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:46:19 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	ft_common_loops(int loops, t_stack *stack_a, t_stack *stack_b)
 {
 	while (loops > 0)
 	{
-		ft_double_rotate(stack_a, stack_b);
+		ft_double_rotate(stack_a, stack_b, 1);
 		loops--;
 	}
 	while (loops < 0)
 	{
-		ft_double_reverse_rotate(stack_a, stack_b);
+		ft_double_reverse_rotate(stack_a, stack_b, 1);
 		loops++;
 	}
 }
@@ -46,12 +46,12 @@ void	ft_rotate_loops(int loops, t_stack *stack)
 {
 	while (loops > 0)
 	{
-		ft_rotate(stack);
+		ft_rotate(stack, 1);
 		loops--;
 	}
 	while (loops < 0)
 	{
-		ft_reverse_rotate(stack);
+		ft_reverse_rotate(stack, 1);
 		loops++;
 	}
 }

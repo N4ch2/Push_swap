@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:30:21 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/17 21:06:58 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:23:43 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,12 @@ void	ft_only_three_ordered(t_stack *stack_a, t_stack *stack_b)
 		if (current -> target < limit)
 		{
 			current = current -> next;
-			ft_push(stack_a, stack_b);
+			ft_push(stack_a, stack_b, 1);
 		}
 		else
 		{
 			current = current ->next;
-			ft_rotate(stack_a);
+			ft_rotate(stack_a, 1);
 		}
 	}
 	ft_three_sort(stack_a);
