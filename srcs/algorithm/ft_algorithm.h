@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:34:21 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/12 19:41:29 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:59:36 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void			ft_roll_back(t_stack *stack_a);
 void			ft_insertion(t_stack *stack_a, t_stack *stack_b);
 /*This function claculate the min node of the stack*/
 t_stack_node	*ft_stack_target_min(t_stack *stack);
-
+/*This function made a presort to decrease movements*/
+void			ft_presort(t_stack *stack_a, t_stack *stack_b);
 #endif

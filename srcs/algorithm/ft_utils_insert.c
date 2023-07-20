@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:00:07 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/19 21:46:19 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:07:17 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	ft_roll_back(t_stack *stack_a)
 	head = stack_a -> head;
 	while (head != NULL && head->target != 1)
 		head = head -> next;
-	if (head -> target < stack_a -> length)
+	if (head -> pos <= (stack_a -> length / 2))
 		ft_rotate_loops(head -> pos - 1, stack_a);
 	else
-		ft_rotate_loops(-(stack_a->length - head->pos), stack_a);
+		ft_rotate_loops(-(stack_a->length - head->pos + 1), stack_a);
 }
