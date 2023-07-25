@@ -15,11 +15,21 @@ SRCS = srcs/parcing/ft_format_input.c\
 		
 OBJS = $(SRCS:.c=.o)
 
+SRCS_BONUS = 	bonus/get_next_line_utils.c\
+				bonus/get_next_line.c\
+				bonus/checker_utils.c\
+		
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
 PROGRAM = push_swap.c
+
+PROGRAM_BONUS = bonus/checker.c
 
 NAME = push_swap
 
-CC = gcc -g
+NAME_BONUS = checker
+
+CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -36,14 +46,23 @@ $(INCLUDE) :
 $(NAME) : $(INCLUDE) $(OBJS) $(PROGRAM)
 	$(CC) $(CFLAGS) $(PROGRAM) $(INCLUDE) $(OBJS)  -o $(NAME)
 
+bonus : $(INCLUDE) $(OBJS) $(OBJS_BONUS) $(PROGRAM_BONUS)
+	$(CC) $(CFLAGS) $(PROGRAM_BONUS) $(INCLUDE) $(OBJS) $(OBJS_BONUS) -o $(NAME_BONUS)
+
 clean :
 	@cd library && make clean
+	@cd ../checker
+	@$(RM) $(OBJS_BONUS)
+	@cd ..
+	@$(RM) $(OBJS)
 	@echo "objects deleted"
 
 fclean : 
 	@cd library && make fclean
 	@$(RM) $(OBJS)
+	@$(RM) $(OBJS_BONUS)
 	@$(RM) $(NAME)
+	@$(RM) $(NAME_BONUS)
 	@echo "objects and programs deleted"
 
 re : fclean all

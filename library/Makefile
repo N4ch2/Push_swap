@@ -56,6 +56,15 @@ OBJS_LIBFT = 	libft/ft_isalpha.o\
 				libft/ft_putstr_fd.o\
 				libft/ft_putendl_fd.o\
 				libft/ft_putnbr_fd.o\
+				libft/ft_lstnew_bonus.o\
+				libft/ft_lstadd_front_bonus.o\
+				libft/ft_lstsize_bonus.o\
+				libft/ft_lstlast_bonus.o\
+				libft/ft_lstadd_back_bonus.o\
+				libft/ft_lstdelone_bonus.o\
+				libft/ft_lstclear_bonus.o\
+				libft/ft_lstiter_bonus.o\
+				libft/ft_lstmap_bonus.o\
 
 NAME = libftprintf.a
 
@@ -69,7 +78,7 @@ all : $(NAME)
 	$(CC) $(CFLAGS) -c  $< -o $(<:.c=.o) -I ./libft
 
 $(NAME) : $(OBJS)
-	@make -C ./libft
+	@make bonus -C ./libft
 	@ar rcs $(NAME) $(OBJS_LIBFT) $(OBJS)
 	@echo "$(NAME) created"
 	@ranlib $(NAME)
