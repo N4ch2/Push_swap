@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:35:52 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/28 18:21:10 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:18:11 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ int	ft_check(t_list *movements, t_stack *stack_a, t_stack *stack_b)
 		pass = pass->next;
 	}
 	ft_lstclear(&movements, ft_clean_cont);
-	if (ft_issort(stack_a) && stack_b->length == 0)
-		return (ft_printf("OK\n"), 0);
-	else if (err_flag == 0)
-		return (ft_printf("KO\n"), 1);
-	else
+	if (err_flag == 1)
 		return (ft_putstr_fd("Error\n", 2), 1);
+	else if (ft_issort(stack_a) && stack_b->length == 0)
+		return (ft_printf("OK\n"), 0);
+	else
+		return (ft_printf("KO\n"), 1);
 }
 
 int	main(int argc, char **argv)
