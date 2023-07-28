@@ -15,21 +15,21 @@ SRCS = srcs/parcing/ft_format_input.c\
 		
 OBJS = $(SRCS:.c=.o)
 
-SRCS_BONUS = 	bonus/get_next_line_utils.c\
-				bonus/get_next_line.c\
-				bonus/checker_utils.c\
+SRCS_BONUS = 	bonus/get_next_line_utils_bonus.c\
+				bonus/get_next_line_bonus.c\
+				bonus/checker_utils_bonus.c\
 		
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 PROGRAM = push_swap.c
 
-PROGRAM_BONUS = bonus/checker.c
+PROGRAM_BONUS = bonus/checker_bonus.c
 
 NAME = push_swap
 
 NAME_BONUS = checker
 
-CC = gcc
+CC = gcc -g
 
 CFLAGS = -Wall -Werror -Wextra
 
