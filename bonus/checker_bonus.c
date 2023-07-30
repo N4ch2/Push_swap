@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:35:52 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/28 19:18:11 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/30 19:38:43 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	ft_check(t_list *movements, t_stack *stack_a, t_stack *stack_b)
 
 	err_flag = 0;
 	pass = movements;
+	if (ft_distinct(stack_a) == 0)
+		err_flag = 1;
 	while (pass != NULL && err_flag == 0)
 	{
 		if (ft_ismov(pass->content) == 0)
@@ -68,7 +70,6 @@ int	ft_check(t_list *movements, t_stack *stack_a, t_stack *stack_b)
 			ft_select_mov(pass->content, stack_a, stack_b);
 		pass = pass->next;
 	}
-	ft_lstclear(&movements, ft_clean_cont);
 	if (err_flag == 1)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	else if (ft_issort(stack_a) && stack_b->length == 0)
@@ -77,30 +78,40 @@ int	ft_check(t_list *movements, t_stack *stack_a, t_stack *stack_b)
 		return (ft_printf("KO\n"), 1);
 }
 
+void	ft_clean_checker(t_stack *stack_a, t_stack *stack_b, t_list *movements)
+{
+	if (stack_a != NULL)
+		ft_clear_stack(stack_a);
+	if (stack_b != NULL)
+		ft_clear_stack(stack_b);
+	if (movements != NULL)
+		ft_lstclear(&movements, ft_clean_cont);
+}
+
 int	main(int argc, char **argv)
 {
 	char			**list;
 	t_stack			*stack_a;
 	t_stack			*stack_b;
 	t_list			*movements;
+	int				out;
 
+	out = 0;
 	movements = ft_fill_movements();
 	list = ft_format_input(argc, argv);
 	stack_a = NULL;
 	if (list != NULL)
 		stack_a = ft_fill_stack(list);
 	else if (list == NULL && argc != 1)
-		ft_putstr_fd("Error\n", 2);
-	stack_b = ft_empty_stack();
-	if (stack_a == NULL || stack_b == NULL)
-		return (ft_clear_stack(stack_b), 1);
-	if (ft_distinct(stack_a) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		ft_clean_stck(stack_a, stack_b);
-		return (1);
+		out = 1;
 	}
-	else
-		ft_check(movements, stack_a, stack_b);
-	return (ft_clean_stck(stack_a, stack_b), 0);
+	stack_b = ft_empty_stack();
+	if (stack_a == NULL || stack_b == NULL)
+		out = 1;
+	if (stack_a != NULL && out != 1)
+		out = ft_check(movements, stack_a, stack_b);
+	ft_clean_checker(stack_a, stack_b, movements);
+	return (out);
 }

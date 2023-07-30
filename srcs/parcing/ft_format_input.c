@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:15:12 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/28 18:18:25 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:59:33 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ char	**ft_fill_list(int argc, char ***argv)
 	i = 1;
 	while (i < argc)
 	{
-		elem = ft_strdup((*argv)[i]);
-		if (elem == NULL || *elem == '\0')
+		if (!ft_strncmp((*argv)[i], "\0", 1))
+			elem = NULL;
+		else
+			elem = ft_strdup((*argv)[i]);
+		if (elem == NULL)
 		{
 			list = ft_clean(list, i);
 			return (NULL);
@@ -61,6 +64,8 @@ char	**ft_format_input(int argc, char **argv)
 	else if (argc == 2)
 		out = ft_chain_to_list(argv[1]);
 	else
+	{
 		out = ft_fill_list(argc, &argv);
+	}
 	return (out);
 }

@@ -29,7 +29,7 @@ NAME = push_swap
 
 NAME_BONUS = checker
 
-CC = gcc -g
+CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 

@@ -6,7 +6,7 @@
 /*   By: joramire <joramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:30:23 by joramire          #+#    #+#             */
-/*   Updated: 2023/07/28 18:41:11 by joramire         ###   ########.fr       */
+/*   Updated: 2023/07/30 19:36:21 by joramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (list != NULL)
 		stack_a = ft_fill_stack(list);
 	else if (list == NULL && argc != 1)
-		ft_putstr_fd("Error\n", 2);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	stack_b = ft_empty_stack();
 	if (stack_a == NULL || stack_b == NULL)
 		return (ft_clear_stack(stack_b), 1);
